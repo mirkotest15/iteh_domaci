@@ -3,16 +3,15 @@
 
 
 
+# header
+require "static/header.html"
 
 
 ?>
+<!-- mid section -->
 
 
-<html>
-<head>
-    
-</head>
-<body>
-
-</body>
-</html>
+<!-- footer -->
+<?php 
+require "static/footer.html"
+?>
