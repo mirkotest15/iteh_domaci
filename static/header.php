@@ -58,7 +58,7 @@ session_start();
                 <div class="d-flex align-items-center">
                     <a href="#">
  
-# todo: javascript tab se otvori i ako prodje refreshuje se stranica
+<!-- todo: javascript tab se otvori i ako prodje refreshuje se stranica -->
 
                         <p style="margin:0px">Login/Register</p>
                     </a> 
