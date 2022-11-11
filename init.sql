@@ -8,7 +8,7 @@ CREATE TABLE `Users`
 (
 	`userID` INT(16) NOT NULL UNIQUE AUTO_INCREMENT,
     `username` VARCHAR(50) NOT NULL,
-    `password` VARCHAR(50) NOT NULL,
+    `password` VARCHAR(50) NOT NULL,                                                -- -> bcrypt hash of password
     `admin` BIT DEFAULT 0,
     `email`	VARCHAR(50) NOT NULL
 );
@@ -18,6 +18,7 @@ CREATE TABLE `Posts`
 (
 	`postID` INT(16) NOT NULL UNIQUE AUTO_INCREMENT,
     `postTitle` VARCHAR(50) NOT NULL,
+    `postTime` DATETIME NOT NULL,
     `NumOfLikes` INT(16) NOT NULL,
     `postContents` VARCHAR(500) NOT NULL,
     `postAuthor` INT(16) FOREIGN KEY User(userID),
