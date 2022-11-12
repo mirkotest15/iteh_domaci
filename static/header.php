@@ -34,7 +34,8 @@ if(!isset($_SESSION)) session_start();
                         <!-- <li class="nav-item"> <a class="nav-link" href="#" onclick="javascript:alert('You must first log in!');return false;">Forum</a> </li> -->
 <?php else:?>
                         <li class="nav-item"> <a class="nav-link" href="forum.php">Forum</a> </li> 
-                        <li class="nav-item"> <a class="nav-link" href="forum.php">Profile</a> </li> 
+                        <li class="nav-item"> <a class="nav-link" href="new_post.php">NewPost</a> </li> 
+                        <li class="nav-item"> <a class="nav-link" href="profile.php">Profile</a> </li> 
 <?php endif;?>                        
                         <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
                     </ul>
@@ -58,8 +59,7 @@ if(!isset($_SESSION)) session_start();
                 </a>
 
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">My profile</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="profile.php">My profile</a></li>
                     <li><hr class="dropdown-divider"></li>
                     <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                 </ul>
