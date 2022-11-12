@@ -18,10 +18,17 @@ class User{
         return $conn->query($q);
     }
 
+    public static function add($nazivTima, $drzava, $godinaOsnivanja, $brojTitula, mysqli $conn)
+    {
+
+        $q = "INSERT INTO tim(nazivTima, drzava, godinaOsnivanja, brojTitula) values('$nazivTima', '$drzava', '$godinaOsnivanja',  '$brojTitula')";
+        return $conn->query($q);
+    }
+
     public static function register($name, $password, $email, mysqli $conn)
     {
-        $q = "insert into users value('".$name."', '".$name."', '".$name."')";
-
+        $q = "INSERT INTO users(username, password, email) values('$name', '$password', '$email')";
+        
         return $conn->query($q);
     }
 }

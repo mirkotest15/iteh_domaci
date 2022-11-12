@@ -3,6 +3,7 @@
 require "dbBroker.php";
 
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +40,7 @@ session_start();
                     </ul>
                 </div>
                 
-<?php if(isset($_SESSION['loggedin'])):?>
+<?php if (empty($_SESSION['loggeduser']) || $_SESSION['loggeduser'] == ''):?>
                 <div class="d-flex align-items-center">
                 <div class="dropdown"> 
                 <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false"> 
@@ -58,7 +59,7 @@ session_start();
                 </ul>
                 </div>
                 </div>
-<?php elseif(!isset($_SESSION['loggedin'])):?>
+<?php else:?>
                 <div class="d-flex align-items-center">
                     <a href="#">
  
@@ -68,7 +69,7 @@ session_start();
                     </a> 
 
                 </div>
-    <?php endif;?>
+<?php endif;?>
             </div>
             </nav>
         </header>

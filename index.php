@@ -7,29 +7,40 @@ require "model/user.php";
 
 # check if there is any post data
 # if its login, send user to forum
-if (isset($_POST['username']) && isset($_POST['password'])) {
+if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['submit'])) {
     $name = $_POST['username'];
     $password = $_POST['password'];
-    echo "$name & $password";
 
-    $rs = User::logIn($name, $password, $conn);
+    if($_POST['submit'] == 'login')
+    {    
+        $rs = User::logIn($name, $password, $conn);
 
-    if ($rs->num_rows == 1) {
-        echo "Uspesno ste se prijavili";
-        $_SESSION['loggeduser'] = "prijavljen";
-        $_SESSION['id'] = $rs->fetch_assoc()['id'];
-        header('Location: forum.php');
-        exit();
-    } else {
-        //promeni 
-        echo '<script type="text/javascript">alert("Pogresni podaci za login");
-                    window.location.href = "http://localhost/iteh/";</script>';
-        exit();
+        if ($rs->num_rows == 1) {
+            echo "Uspesno ste se prijavili";
+            $_SESSION['loggeduser'] = "prijavljen";
+            $_SESSION['id'] = $rs->fetch_assoc()['id'];
+            header('Location: forum.php');
+            exit();
+        } else {
+            //promeni 
+            echo '<script type="text/javascript">alert("Pogresni podaci za login");
+                        window.location.href = "http://localhost/iteh/";</script>';
+            exit();
+        }
     }
+    elseif($_POST['submit'] == 'register')
+    {
+        echo "register :)";
+    }
+    else
+    {
+        echo $_POST['submit'];
+    }
+
 }
 else
 {
-    
+
 }
 
 ?>
@@ -60,6 +71,7 @@ else
             <div class="card card-registration card-registration-2" style="border-radius: 15px;">
             <div class="card-body p-0">
                 <div class="row g-0">
+    <!-- Login -->
                 <div class="col-lg-6">
                     <form method="post" action="">
                         <div class="p-5">
@@ -120,12 +132,16 @@ else
 
                         <div class="mb-4 pb-2">
                             <div class="form-outline form-white">
-                            <input type="text" id="form3Examplea6" class="form-control form-control-lg" />
+                            <input type="text" name="email" id="form3Examplea6" class="form-control form-control-lg" />
                             <label class="form-label" for="form3Examplea6">Email</label>
                             </div>
                         </div>
 
-                        <input type="submit">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <input type="submit" name="submit" value="register">
+                            </div>
+                        </div>
 
                         </div>
                     </form>
