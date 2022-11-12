@@ -1,13 +1,14 @@
 current:
     + implement profile i new_post stranice
     + implement CRUD nad post-ovima
-    - onda nastavi sa post.php
-    - onda nastavi sa lajkovima i komentarima
-    - na kraju spoji sve u forum.php
-    - osmisli gde ces AJAX da postavis -> vrv Likes
+    + onda nastavi sa post.php
+    + onda nastavi sa lajkovima
+    - onda nastavi sa komentarima
+    + na kraju spoji sve u forum.php
+    - osmisli gde ces AJAX da postavis za 1.Likes, 2.comments, 
 
 index:
--   form input validity checker: sva polja popunjena? email ima @?
+    - form input validity checker: sva polja popunjena? email ima @?
     + implementirati proveravanje POST requesta
     + implementirati unos i citanje iz baze za korisnika
     + implementirati login -> model za korisnika kao static funkcija
@@ -16,9 +17,9 @@ index:
     + header -> notLoggedIn:Main|About LoggedIn:Main|Forum|Profile|NewPost|About
 
 forum:
-    - uredi frontend foruma
+    + uredi frontend foruma
     + foreach petlja i prikaz html-a za svaki post
-    - postaviti da se sortiraju prema datumu
+    + postaviti da se sortiraju prema datumu
 
 new_post:
     + form for inputting a new post
@@ -26,7 +27,7 @@ new_post:
 
 post:
     + prikaz custom posta, npr preko id posta
-    - implementiraj lajkovanje
+    + implementiraj lajkovanje
     - implementiraj komentare
     + implementiraj post model
     + implementiraj crud post

@@ -64,16 +64,12 @@ else
 -->
 
 <!-- Main -> lep dizajn showcase -->
-<div class="container" style="border:solid 1px black; width:100%;">
-    <h1 style="text-align:center; font-family:fantasy;">MN Forum</h1>
-</div>
-<!-- About -> o forumu -->
-<div class="container" style="border:solid 1px black; width:100%;">
-    <h1 style="text-align:center; font-family: fantasy;">About</h1>
-</div>
 <!-- Login -> samo login i register forme -->
-<div class="container" style="border:solid 1px black; width:100%;">
+<?php if (empty($_SESSION['loggeduser']) || $_SESSION['loggeduser'] == ''){
+?>
+<div class="container-fluid" style="">
     <section class="h-100 h-custom gradient-custom-2">
+    <h1 style="padding-top:50px; text-align:center; font-family:fantasy;">MN Forum</h1>
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12">
@@ -162,8 +158,13 @@ else
         </div>
     </div>
     </section>
-
 </div>
+
+<?php }else {
+    header("Location: forum.php");
+    die();
+}
+?>
 
 <script type="">
     // OVDE PROVERI FORM VALIDATION

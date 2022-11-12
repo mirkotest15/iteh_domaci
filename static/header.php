@@ -29,8 +29,8 @@ if(!isset($_SESSION)) session_start();
                     </a>
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
-                        <li class="nav-item"> <a class="nav-link" href="index.php">Main</a> </li> 
 <?php if (empty($_SESSION['loggeduser']) || $_SESSION['loggeduser'] == ''):?>
+                        <li class="nav-item"> <a class="nav-link" href="index.php">Main</a> </li> 
                         <!-- <li class="nav-item"> <a class="nav-link" href="#" onclick="javascript:alert('You must first log in!');return false;">Forum</a> </li> -->
 <?php else:?>
                         <li class="nav-item"> <a class="nav-link" href="forum.php">Forum</a> </li> 
