@@ -29,8 +29,12 @@ session_start();
                     </a>
 
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
-                        <li class="nav-item"> <a class="nav-link" href="#">Register</a> </li> 
-                        <li class="nav-item"> <a class="nav-link" href="#">Login</a> </li> 
+                        <li class="nav-item"> <a class="nav-link" href="index.php">Main</a> </li> 
+<?php if (empty($_SESSION['loggeduser']) || $_SESSION['loggeduser'] == ''):?>
+                        <li class="nav-item"> <a class="nav-link" href="#" onclick="javascript:alert('You must first log in!');return false;">Forum</a> </li> 
+<?php else:?>
+                        <li class="nav-item"> <a class="nav-link" href="forum.php">Forum</a> </li> 
+<?php endif;?>                        
                         <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
                     </ul>
                 </div>
@@ -39,7 +43,7 @@ session_start();
                 <div class="d-flex align-items-center">
                 <div class="dropdown"> 
                 <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false"> 
-                <img src="https://i.pinimg.com/550x/18/b9/ff/18b9ffb2a8a791d50213a9d595c4dd52.jpg" class="rounded-circle" height="25"     alt="Black and White Portrait of a Man" loading="lazy" /> 
+                <img src="img/default_pfp.jpg" class="rounded-circle" height="25"     alt="Black and White Portrait of a Man" loading="lazy" /> 
                 </a> 
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar" > 
                     <li>     
