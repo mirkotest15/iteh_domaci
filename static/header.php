@@ -37,7 +37,7 @@ if(!isset($_SESSION)) session_start();
                         <li class="nav-item"> <a class="nav-link" href="new_post.php">NewPost</a> </li> 
                         <li class="nav-item"> <a class="nav-link" href="profile.php">Profile</a> </li> 
 <?php endif;?>                        
-                        <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="about.php">About</a> </li>
                     </ul>
                 </div>
                 

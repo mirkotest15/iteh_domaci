@@ -23,5 +23,11 @@ class User{
         
         return $conn->query($q);
     }
+
+    public static function getUserById($userid, mysqli $conn)
+    {
+        $q = "SELECT * FROM users WHERE userID=$userid";
+        return $conn->query($q);
+    }
 }
 ?>

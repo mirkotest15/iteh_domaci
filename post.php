@@ -2,6 +2,7 @@
 
 require "dbBroker.php";
 require "model/post.php";
+require "model/user.php";
 
 session_start();
 
@@ -24,8 +25,7 @@ if(isset($_GET['id']))
         echo $rs[1]." ";
         echo $rs[2]." ";
         echo $rs[3]." ";
-        echo $rs[4]." ";
-        echo $rs[5]." ";
+        echo User::getUserById($rs[4], $conn)->fetch_row()[1];
     }
     else
     {
