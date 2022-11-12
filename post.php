@@ -18,13 +18,20 @@ if(isset($_GET['id']))
     # sacuvati id posta u promenljivoj
     $post_id = $_GET['id'];
     # prikupiti podatke iz baze o postu
-    $rs = Post::getPost($post_id, $conn)->fetch_row();
-    echo $rs[0]." ";
-    echo $rs[1]." ";
-    echo $rs[2]." ";
-    echo $rs[3]." ";
-    echo $rs[4]." ";
-    echo $rs[5]." ";
+    if($rs = Post::getPost($post_id, $conn)->fetch_row())
+    {
+        echo $rs[0]." ";
+        echo $rs[1]." ";
+        echo $rs[2]." ";
+        echo $rs[3]." ";
+        echo $rs[4]." ";
+        echo $rs[5]." ";
+    }
+    else
+    {
+        header("Location: forum.php");
+        die();
+    }
 }
 else
 {
