@@ -1,0 +1,10 @@
+index:
+    - form input validity checker: sva polja popunjena? email ima @?
+    - implementirati proveravanje POST requesta
+    - implementirati unos i citanje iz baze za korisnika
+    - implementirati login -> model za korisnika kao static funkcija
+
+forum:
+    - uredi frontend foruma
+    - foreach petlja i prikaz html-a za svaki post
+    - postaviti da se sortiraju prema datumu

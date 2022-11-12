@@ -7,7 +7,30 @@ require "model/user.php";
 
 # check if there is any post data
 # if its login, send user to forum
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $name = $_POST['username'];
+    $password = $_POST['password'];
+    echo "$name & $password";
 
+    $rs = User::logIn($name, $password, $conn);
+
+    if ($rs->num_rows == 1) {
+        echo "Uspesno ste se prijavili";
+        $_SESSION['loggeduser'] = "prijavljen";
+        $_SESSION['id'] = $rs->fetch_assoc()['id'];
+        header('Location: forum.php');
+        exit();
+    } else {
+        //promeni 
+        echo '<script type="text/javascript">alert("Pogresni podaci za login");
+                    window.location.href = "http://localhost/iteh/";</script>';
+        exit();
+    }
+}
+else
+{
+    
+}
 
 ?>
 <!-- mid section -->
@@ -46,7 +69,7 @@ require "model/user.php";
                             <div class="col-md-6 mb-4 pb-2">
 
                             <div class="form-outline">
-                                <input type="text" id="form3Examplev2" class="form-control form-control-lg" />
+                                <input type="text" name="username" id="form3Examplev2" class="form-control form-control-lg" />
                                 <label class="form-label" for="form3Examplev2">Username</label>
                             </div>
 
@@ -54,7 +77,7 @@ require "model/user.php";
                             <div class="col-md-6 mb-4 pb-2">
 
                             <div class="form-outline">
-                                <input type="password" id="form3Examplev3" class="form-control form-control-lg" />
+                                <input type="password" name="password" id="form3Examplev3" class="form-control form-control-lg" />
                                 <label class="form-label" for="form3Examplev3">Password</label>
                             </div>
 
@@ -63,7 +86,7 @@ require "model/user.php";
 
                         <div class="row">
                             <div class="col-md-6">
-                                <input type="submit">
+                                <input type="submit" name="submit" value="login">
                             </div>
                         </div>
 
@@ -80,16 +103,16 @@ require "model/user.php";
                             <div class="col-md-5 mb-4 pb-2">
 
                             <div class="form-outline form-white">
-                                <input type="text" id="form3Examplea4" class="form-control form-control-lg" />
-                                <label class="form-label" for="form3Examplea4">Username</label>
+                                <input type="text" name="username" id="form3Examplev2" class="form-control form-control-lg" />
+                                <label class="form-label">Username</label>
                             </div>
 
                             </div>
                             <div class="col-md-7 mb-4 pb-2">
 
                             <div class="form-outline form-white">
-                                <input type="text" id="form3Examplea5" class="form-control form-control-lg" />
-                                <label class="form-label" for="form3Examplea5">Password</label>
+                                <input type="text" name="password" id="form3Examplev2" class="form-control form-control-lg" />
+                                <label class="form-label">Password</label>
                             </div>
 
                             </div>
