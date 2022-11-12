@@ -25,13 +25,12 @@ new_post:
     - validate the input with JS
 
 post:
-    - prikaz custom posta, npr preko id posta
+    + prikaz custom posta, npr preko id posta
     - implementiraj lajkovanje
     - implementiraj komentare
-    - implementiraj post model
-    - implementiraj crud post
+    + implementiraj post model
+    + implementiraj crud post
 
 profile:
-    - prikaz user-ovog profila
-    - edit own profile
+    + prikaz user-ovog profila
     - promena slike? -> jos jedno mesto u bazi za sliku BLOB/VARCHAR(base64) -> /user_pfp/1.jpg 2.jpg 3.jpg...(id).jpg
