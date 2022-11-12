@@ -1,3 +1,11 @@
+current:
+    + implement profile i new_post stranice
+    + implement CRUD nad post-ovima
+    - onda nastavi sa post.php
+    - onda nastavi sa lajkovima i komentarima
+    - na kraju spoji sve u forum.php
+    - osmisli gde ces AJAX da postavis -> vrv Likes
+
 index:
 -   form input validity checker: sva polja popunjena? email ima @?
     + implementirati proveravanje POST requesta
@@ -13,11 +21,11 @@ forum:
     - postaviti da se sortiraju prema datumu
 
 new_post:
-    - form for inputting a new post
+    + form for inputting a new post
+    - validate the input with JS
 
 post:
     - prikaz custom posta, npr preko id posta
-    - zabrani idor :)
     - implementiraj lajkovanje
     - implementiraj komentare
     - implementiraj post model

@@ -18,7 +18,11 @@ if ((isset($_POST['username']) && isset($_POST['password']) && isset($_POST['sub
         if ($rs->num_rows == 1) {
             echo "Uspesno ste se prijavili";
             $_SESSION['loggeduser'] = "prijavljen";
-            $_SESSION['id'] = $rs->fetch_assoc()['id'];
+            $result = $rs->fetch_row();
+            $_SESSION['user_id'] = $result[0];
+            $_SESSION['admin'] = $result[3];
+            $_SESSION['email'] = $result[4];
+            $_SESSION['username'] = $name;
             header('Location: forum.php');
             exit();
         } else {

@@ -13,7 +13,7 @@ require "static/header.php"
 
 ?>
 
-<h1>Welcome to the dark side</h1>
+<h1>Welcome</h1>
 
 
 

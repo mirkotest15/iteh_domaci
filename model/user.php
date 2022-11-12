@@ -14,7 +14,6 @@ class User{
 
     public static function logIn($name, $password, mysqli $conn){
         $q = "select * from users where username= '".$name."' and password ='".$password."' limit 1;";
-        
         return $conn->query($q);
     }
 

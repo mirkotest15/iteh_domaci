@@ -1,6 +1,6 @@
 <?php
 
-class User{
+class Post{
     public $postID;
     public $title;
     public $time;
