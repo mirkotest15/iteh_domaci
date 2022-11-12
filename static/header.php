@@ -1,8 +1,8 @@
 <!-- trebace za session_start, da prikazemo ko je ulogovan npr -->
 <?php
-require "dbBroker.php";
+require_once "dbBroker.php";
 
-session_start();
+if(!isset($_SESSION)) session_start();
 
 ?>
 <!DOCTYPE html>
@@ -13,10 +13,9 @@ session_start();
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Radi?</title>
 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/style.css"/>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         
     </head>
     <body>
@@ -32,9 +31,10 @@ session_start();
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0"> 
                         <li class="nav-item"> <a class="nav-link" href="index.php">Main</a> </li> 
 <?php if (empty($_SESSION['loggeduser']) || $_SESSION['loggeduser'] == ''):?>
-                        <li class="nav-item"> <a class="nav-link" href="#" onclick="javascript:alert('You must first log in!');return false;">Forum</a> </li> 
+                        <!-- <li class="nav-item"> <a class="nav-link" href="#" onclick="javascript:alert('You must first log in!');return false;">Forum</a> </li> -->
 <?php else:?>
                         <li class="nav-item"> <a class="nav-link" href="forum.php">Forum</a> </li> 
+                        <li class="nav-item"> <a class="nav-link" href="forum.php">Profile</a> </li> 
 <?php endif;?>                        
                         <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
                     </ul>
@@ -42,26 +42,7 @@ session_start();
                 
 <?php if (empty($_SESSION['loggeduser']) || $_SESSION['loggeduser'] == ''):?>
                 <div class="d-flex align-items-center">
-                <div class="dropdown"> 
-                <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false"> 
-                <img src="img/default_pfp.jpg" class="rounded-circle" height="25"     alt="Black and White Portrait of a Man" loading="lazy" /> 
-                </a> 
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar" > 
-                    <li>     
-                        <a class="dropdown-item" href="#">My profile</a> 
-                    </li> 
-                    <li>     
-                        <a class="dropdown-item" href="#">Settings</a> 
-                    </li> 
-                    <li>     
-                        <a class="dropdown-item" href="#">Logout</a> 
-                    </li> 
-                </ul>
-                </div>
-                </div>
-<?php else:?>
-                <div class="d-flex align-items-center">
-                    <a href="#">
+                    <a href="index.php">
  
 <!-- todo: javascript tab se otvori i ako prodje refreshuje se stranica -->
 
@@ -69,6 +50,21 @@ session_start();
                     </a> 
 
                 </div>
+<?php else:?>
+            <div class="d-flex align-items-center">
+                <div class="btn-group dropstart">
+                <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="img/default_pfp.jpg" class="rounded-circle" height="25"     alt="Black and White Portrait of a Man" loading="lazy" />
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">My profile</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                </ul>
+                </div>
+            </div>              
 <?php endif;?>
             </div>
             </nav>

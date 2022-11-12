@@ -9,8 +9,15 @@ if (empty($_SESSION['loggeduser']) || $_SESSION['loggeduser'] == '') {
     die();
 }
 
+require "static/header.php"
+
 ?>
 
 <h1>Welcome to the dark side</h1>
 
-<a href="logout.php">Log Out</a>
+
+
+
+
+
+<?php require "static/footer.php" ?>

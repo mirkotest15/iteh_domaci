@@ -1,15 +1,19 @@
 index:
-    - form input validity checker: sva polja popunjena? email ima @?
+-   form input validity checker: sva polja popunjena? email ima @?
     + implementirati proveravanje POST requesta
     + implementirati unos i citanje iz baze za korisnika
     + implementirati login -> model za korisnika kao static funkcija
-    - zavrsiti register
-    - fix Login/Register dugme gore desno na header.php
+    + zavrsiti register
+    + fix Login/Register dugme gore desno na header.php
+    + header -> notLoggedIn:Main|About LoggedIn:Main|Forum|Profile|NewPost|About
 
 forum:
     - uredi frontend foruma
     - foreach petlja i prikaz html-a za svaki post
     - postaviti da se sortiraju prema datumu
+
+new_post:
+    - form for inputting a new post
 
 post:
     - prikaz custom posta, npr preko id posta
@@ -18,3 +22,8 @@ post:
     - implementiraj komentare
     - implementiraj post model
     - implementiraj crud post
+
+profile:
+    - prikaz user-ovog profila
+    - edit own profile
+    - promena slike? -> jos jedno mesto u bazi za sliku BLOB/VARCHAR(base64) -> /user_pfp/1.jpg 2.jpg 3.jpg...(id).jpg

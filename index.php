@@ -7,7 +7,7 @@ require "model/user.php";
 
 # check if there is any post data
 # if its login, send user to forum
-if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['submit'])) {
+if ((isset($_POST['username']) && isset($_POST['password']) && isset($_POST['submit'])) || (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['email']) && isset($_POST['submit']))) {
     $name = $_POST['username'];
     $password = $_POST['password'];
 
@@ -30,7 +30,12 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['subm
     }
     elseif($_POST['submit'] == 'register')
     {
-        echo "register :)";
+        $email = $_POST['email'];
+        $rs = User::register($name, $password, $email, $conn);
+
+        echo "Uspesno ste se Registrovali!";
+        header('Location: index.php');
+        exit();
     }
     else
     {
@@ -81,16 +86,16 @@ else
                             <div class="col-md-6 mb-4 pb-2">
 
                             <div class="form-outline">
-                                <input type="text" name="username" id="form3Examplev2" class="form-control form-control-lg" />
-                                <label class="form-label" for="form3Examplev2">Username</label>
+                                <label class="form-label" for="log_usrnm">Username:</label>
+                                <input type="text" name="username" id="log_usrnm" class="form-control form-control-lg" />
                             </div>
 
                             </div>
                             <div class="col-md-6 mb-4 pb-2">
 
                             <div class="form-outline">
-                                <input type="password" name="password" id="form3Examplev3" class="form-control form-control-lg" />
-                                <label class="form-label" for="form3Examplev3">Password</label>
+                                <label class="form-label" for="log_pwd">Password:</label>
+                                <input type="password" name="password" id="log_pwd" class="form-control form-control-lg" />
                             </div>
 
                             </div>
@@ -107,7 +112,7 @@ else
                 </div>
     <!-- Register -->
                 <div class="col-lg-6">
-                    <form method="post" action="">
+                    <form method="post" action="" id="reg_form">
                         <div class="p-5">
                         <h3 class="fw-normal mb-5">Register</h3>
 
@@ -115,16 +120,16 @@ else
                             <div class="col-md-5 mb-4 pb-2">
 
                             <div class="form-outline form-white">
-                                <input type="text" name="username" id="form3Examplev2" class="form-control form-control-lg" />
-                                <label class="form-label">Username</label>
+                                <label class="form-label" for="reg_usrnm">Username:</label>
+                                <input type="text" name="username" id="reg_usrnm" class="form-control form-control-lg" />
                             </div>
 
                             </div>
                             <div class="col-md-7 mb-4 pb-2">
 
                             <div class="form-outline form-white">
-                                <input type="text" name="password" id="form3Examplev2" class="form-control form-control-lg" />
-                                <label class="form-label">Password</label>
+                                <label class="form-label" for="reg_pwd">Password:</label>
+                                <input type="password" name="password" id="reg_pwd" class="form-control form-control-lg" />
                             </div>
 
                             </div>
@@ -132,8 +137,8 @@ else
 
                         <div class="mb-4 pb-2">
                             <div class="form-outline form-white">
-                            <input type="text" name="email" id="form3Examplea6" class="form-control form-control-lg" />
-                            <label class="form-label" for="form3Examplea6">Email</label>
+                            <label class="form-label" for="reg_email">Email:</label>
+                            <input type="text" name="email" id="reg_email" class="form-control form-control-lg" />
                             </div>
                         </div>
 
@@ -155,6 +160,35 @@ else
     </section>
 
 </div>
+
+<script type="">
+    // OVDE PROVERI FORM VALIDATION
+
+    const username = document.querySelector('#reg_usrnm');
+    const email = document.querySelector('#reg_email');
+    const password = document.querySelector('#reg_pwd');
+    
+    const form = document.querySelector('#reg_form');
+
+    const isRequired = value => value === '' ? false : true;
+    const isBetween = (length, min, max) => length < min || length > max ? false : true;
+    const isEmailValid = (email) => {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    };
+    const isPasswordSecure = (password) => {
+        const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+        return re.test(password);   
+    };
+
+//event listener on every input box, while typing, it checks
+    // username must not be empty
+
+    // password must not be empty
+    // email must not be empty
+    // email must follow mail address rules
+
+</script>
 
 <!-- footer -->
 <?php 
