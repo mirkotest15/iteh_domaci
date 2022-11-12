@@ -17,7 +17,7 @@ index:
 
 forum:
     - uredi frontend foruma
-    - foreach petlja i prikaz html-a za svaki post
+    + foreach petlja i prikaz html-a za svaki post
     - postaviti da se sortiraju prema datumu
 
 new_post:

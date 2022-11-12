@@ -19,6 +19,7 @@ require "static/header.php"
 
 <?php 
 $rows=Post::getPosts($conn)->fetch_all();
+array_multisort( array_column($rows, 0), SORT_DESC, $rows );
 foreach($rows as $row):?>
     <div class="container-fluid">
         <a href="post.php?id=<?php echo $row[0]; ?>"> <?php echo $row[1]." | ".$row[2]; ?> </a>
