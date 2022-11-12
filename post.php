@@ -53,15 +53,14 @@ if(isset($_GET['id']))
 <!-- pored Like:504 i Unlike:503
     postavi da ajax salje -->
                             <?php if(($numlike = Like::getLike($post_id, $_SESSION['user_id'], $conn)->num_rows) == 1): ?>
-                                <button type="button" style="background-color:gray">Liked: <?php echo Like::getLikesByPostId($post_id, $conn)->num_rows; ?></button>  
+                                <button type="button" id="like_button" onclick="ajaxGetLikes(<?php echo $post_id; ?>)" style="background-color:gray">Liked: <?php echo Like::getLikesByPostId($post_id, $conn)->num_rows; ?></button>  
                             <?php else: ?>  
-                                <button type="button" style="background-color:lightgray">Like: <?php echo Like::getLikesByPostId($post_id, $conn)->num_rows; ?></button>    
+                                <button type="button" id="like_button" onclick="ajaxGetLikes(<?php echo $post_id; ?>)" style="background-color:lightgray">Like: <?php echo Like::getLikesByPostId($post_id, $conn)->num_rows; ?></button>    
                             <?php endif; ?>
                             <!-- <button type="button" class="">Comment</button> -->    
                         </div>
                     </div>
                 </div>
-    
         </div>
     </div>
     </section>
@@ -84,8 +83,53 @@ else
 <!-- dodati lajk dugme koje poziva create za lajk tabelu -->
 <!-- dodati comment dugme i reply -->
 
-<script type="">
+<script type="text/javascript">
+function ajaxGetLikes(str)
+{
+    var xmlHttp;
+    try
+    {
+        // Firefox, Opera 8.0+, Safari
+        xmlHttp=new XMLHttpRequest();
+    }
+    catch (e)
+    {
+        // Internet Explorer
+        try
+        {
+            xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+        }
+        catch (e)
+        {
+            try
+            {
+                xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            catch (e)
+            {
+                alert("Your browser does not support AJAX!");
+                return false;
+            }
+        
+        }
+    }
 
+    var url="api/like.php";
+    url=url+"?id="+str;
+    console.log(url);
+    xmlHttp.open("GET",url,true);
+    xmlHttp.send(null);
+
+    xmlHttp.onreadystatechange=function()
+    {
+        if(xmlHttp.readyState==4)
+        {
+            console.log(xmlHttp.responseText);
+            document.getElementById('like_button').textContent = xmlHttp.responseText.split(';')[0];
+            document.getElementById('like_button').style.backgroundColor = xmlHttp.responseText.split(';')[1];
+        }
+    }
+}
 </script>
 
 <?php require "static/footer.php"; ?>

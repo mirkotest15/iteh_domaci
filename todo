@@ -5,7 +5,7 @@ current:
     + onda nastavi sa lajkovima
     - onda nastavi sa komentarima
     + na kraju spoji sve u forum.php
-    - osmisli gde ces AJAX da postavis za 1.Likes, 2.comments, 
+    - AJAX: +.Likes 2. 3. 
 
 index:
     - form input validity checker: sva polja popunjena? email ima @?
@@ -31,6 +31,7 @@ post:
     - implementiraj komentare
     + implementiraj post model
     + implementiraj crud post
+    - edit post, ako je tvoj ili ako si admin
 
 profile:
     + prikaz user-ovog profila
