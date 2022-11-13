@@ -2,11 +2,11 @@
 +++ Nad bazom moraju biti implementirane osnovne CRUD operacije (najmanje 3). 
 +++ Potrebno je da postoje PHP modeli koji odgovaraju MySQL tabelama - korišćenje OOP
 +++ Potrebno je korišćenje superglobalnih promenljivih
-+-- Potrebno je primeniti AJAX-a (najmanje 3 funkcionalnosti). 
+++- Potrebno je primeniti AJAX-a (najmanje 3 funkcionalnosti). 
 +++ Kod je neophodno da bude verzionisan (najmanje 3 verzije/commita) sa smislenim porukama
 +++ Kod je potrebno da bude postavljen na GitHub
 --- Potrebno je postaviti dokumentaciju na Moodle. Dokumentaciju je potrebno uraditi po templejtu u prilogu i predati pod svojim imenom, prezimenom i brojem indeksa
---- Obezbediti bar dve dodatne funkcionalnosti (pretraga, sortiranje, upravljanje greškama i sl.) i koristiti JavaScript ili jQuery. 
++++ Obezbediti bar dve dodatne funkcionalnosti (pretraga, sortiranje, upravljanje greškama i sl.) i koristiti JavaScript ili jQuery. 
 +++ Sajt ima jedinstven dizajn uz korišćenje CSS-a i/ili frontend frejmvorka (Bootstrap, Foundation, itd.)
 +++ Koristiti neke od PHP funkcija, kao što su require, include, date
 +++ Korisiti napredne opcije superglobalnih promenljivih
@@ -19,8 +19,8 @@ current:
     - onda nastavi sa komentarima
     - Comments reply to commentID
     + na kraju spoji sve u forum.php
-    - AJAX: +.Likes 2.FilterPostsByUser +.You posted XXXX posts already
-    - JS additional: +.HowManyDaysAgoWasPosted +.OnClickSlikaPostaneFudbalskaLoptaUProfileDelu -.ValidacijaFormi
+    + AJAX: +.Likes 2.FilterPostsByLoggedInUser +.You posted XXXX posts already
+    - JS additional: +.HowManyDaysAgoWasPosted +.OnClickSlikaPostaneFudbalskaLoptaUProfileDelu +.ValidacijaFormi
 
 index:
     - form input validity checker: sva polja popunjena? email ima @?

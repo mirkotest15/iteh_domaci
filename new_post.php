@@ -104,7 +104,7 @@ function ajaxGetNumOfPosts()
         }
     }
 
-    var url="api/post.php";
+    var url="api/numofpost.php";
     console.log(url);
     xmlHttp.open("GET",url,true);
     xmlHttp.send(null);

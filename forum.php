@@ -18,6 +18,7 @@ require "static/header.php"
     <section class="mb-4">
 
     <h2 class="h1-responsive font-weight-bold text-center my-4">Welcome <?php echo "<b>".$_SESSION['username']."</b>"; ?>!</h2>
+    <p style="display:none" id="whoami"><?php echo $_SESSION['username']; ?></p>
     <p class="text-center w-responsive mx-auto mb-5">On MN Forum you are free to read a post/threead on any topic you wish!</p>
 
     <div class="row">
@@ -53,6 +54,7 @@ foreach($rows as $row):?>
 </div>
 
 <script type="">
+//calculate days ago for each post
     dates = document.getElementsByClassName("dateposted");
     howmanydayspasseds = document.getElementsByClassName("howmanydayspassed");
 
@@ -66,6 +68,8 @@ foreach($rows as $row):?>
         //document.getElementById('howmanydayspassed').innerHTML = "    (" + days_passed + " days ago)";
         return Math.floor(Math.abs(Date.parse(new Date) - Date.parse(date)) / 1000 / 86400);
     }
+
+//when filter gets clicked, AJAX the posts from that user to me
 </script>
 
 <?php require "static/footer.php" ?>
