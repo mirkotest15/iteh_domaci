@@ -1,9 +1,9 @@
-#mimg {
+img#mimg {
     border:1px solid black;
 }
 
-#mimg:hover {
-    border:10px solid black;
+img#mimg:hover {
+    border:10px dashed black;
 }
 
 .h-custom {

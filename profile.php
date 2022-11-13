@@ -29,7 +29,7 @@ require "static/header.php";
                     <div class="col-md-4"></div>
                     <div class="col-md-4">
                         <div class="md-form mb-0">
-                            <img src="img/default_pfp.jpg" id="mimg" class="rounded-circle" height="100" alt="Default profile picture" loading="lazy"/>
+                            <img src="img/default_pfp.jpg" onclick="rotimg()" id="mimg" class="rounded-circle" height="100" alt="Default profile picture" loading="lazy"/>
                         </div>
                     </div>
                     <div class="col-md-4"></div>
@@ -77,5 +77,14 @@ require "static/header.php";
     </section>
 </div>
 
+<script type="">
+var rot_deg = 0;
+
+    function rotimg(){
+        const rotated = document.getElementById('mimg');
+        rot_deg = (rot_deg+90)%360;
+        rotated.style.transform = 'rotate('+rot_deg+'deg)';
+    }
+</script>
 
 <?php require "static/footer.php"; ?>

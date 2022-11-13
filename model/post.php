@@ -52,11 +52,11 @@ class Post{
             $myArray = array();
             if ($result = $conn->query($q)) {
 
-                while ($row = $result->fetch_array(1)) {
-                    $myArray[] = $row;
-                }
+                # while ($row = $result->fetch_array(1)) {
+                #     $myArray[] = $row;
+                # }
             }
-            return $myArray;
+            return $result;
         }
     //Update post
         //by id

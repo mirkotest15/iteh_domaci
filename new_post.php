@@ -37,7 +37,8 @@ if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['submit']
     <section class="mb-4">
 
     <h2 class="h1-responsive font-weight-bold text-center my-4">Add new post</h2>
-    <p class="text-center w-responsive mx-auto mb-5">Hi <?php echo "<b>".$_SESSION['username']."</b>"; ?>! On MN Forum you are free to create a post/threead on any topic you wish!</p>
+    <p class="text-center w-responsive mx-auto">Hi <?php echo "<b>".$_SESSION['username']."</b>"; ?>! On MN Forum you are free to create a post/thread on any topic you wish!</p>
+    <p onclick="ajaxGetNumOfPosts()" class="text-center w-responsive mx-auto mb-5"><i id="getnumposts">click me!</i></p>
 
     <div class="row">
         <div class="col-md-1"></div>
@@ -71,5 +72,52 @@ if (isset($_POST['title']) && isset($_POST['content']) && isset($_POST['submit']
     </div>
     </section>
 </div>
+
+<script type="text/javascript">
+function ajaxGetNumOfPosts()
+{
+    var xmlHttp;
+    try
+    {
+        // Firefox, Opera 8.0+, Safari
+        xmlHttp=new XMLHttpRequest();
+    }
+    catch (e)
+    {
+        // Internet Explorer
+        try
+        {
+            xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+        }
+        catch (e)
+        {
+            try
+            {
+                xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            catch (e)
+            {
+                alert("Your browser does not support AJAX!");
+                return false;
+            }
+        
+        }
+    }
+
+    var url="api/post.php";
+    console.log(url);
+    xmlHttp.open("GET",url,true);
+    xmlHttp.send(null);
+
+    xmlHttp.onreadystatechange=function()
+    {
+        if(xmlHttp.readyState==4)
+        {
+            console.log(xmlHttp.responseText);
+            document.getElementById('getnumposts').innerHTML = xmlHttp.responseText;
+        }
+    }
+}
+</script>
 
 <?php require "static/footer.php"; ?>
