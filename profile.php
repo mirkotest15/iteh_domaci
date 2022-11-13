@@ -29,8 +29,7 @@ require "static/header.php";
                     <div class="col-md-4"></div>
                     <div class="col-md-4">
                         <div class="md-form mb-0">
-                            <img src="img/default_pfp.jpg"  style="border:1px solid black;" class="rounded-circle" height="100" alt="Black and White Portrait of a Man" loading="lazy" />
-                            
+                            <img src="img/default_pfp.jpg" id="mimg" class="rounded-circle" height="100" alt="Default profile picture" loading="lazy"/>
                         </div>
                     </div>
                     <div class="col-md-4"></div>

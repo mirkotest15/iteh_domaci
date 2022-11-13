@@ -20,7 +20,7 @@ current:
     - Comments reply to commentID
     + na kraju spoji sve u forum.php
     - AJAX: +.Likes 2.FilterPostsByUser 3.CommentsUpdating
-    - JS additional: 1.HowManyDaysAgoWasPosted 2.OnClickSlikaPostaneFudbalskaLoptaUProfileDelu 2.5BombaForumKadKliknesSveEksplodira
+    - JS additional: +.HowManyDaysAgoWasPosted 2.OnClickSlikaPostaneFudbalskaLoptaUProfileDelu 2.5BombaForumKadKliknesSveEksplodira
 
 index:
     - form input validity checker: sva polja popunjena? email ima @?

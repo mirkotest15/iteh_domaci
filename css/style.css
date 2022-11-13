@@ -1,3 +1,11 @@
+#mimg {
+    border:1px solid black;
+}
+
+#mimg:hover {
+    border:10px solid black;
+}
+
 .h-custom {
     height: 100vh !important;
 }
@@ -34,5 +42,3 @@ background: linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
 }
-
-    

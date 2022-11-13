@@ -50,8 +50,7 @@ if(isset($_GET['id']))
                 <div class="row">
                     <div class="col-md-12">
                         <div class="md-form">
-<!-- pored Like:504 i Unlike:503
-    postavi da ajax salje -->
+<!-- pored Like:504 i Unlike:503 -->
                             <?php if(($numlike = Like::getLike($post_id, $_SESSION['user_id'], $conn)->num_rows) == 1): ?>
                                 <button type="button" id="like_button" onclick="ajaxGetLikes(<?php echo $post_id; ?>)" style="background-color:gray">Liked: <?php echo Like::getLikesByPostId($post_id, $conn)->num_rows; ?></button>  
                             <?php else: ?>  
