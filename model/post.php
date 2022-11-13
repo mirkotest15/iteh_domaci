@@ -73,5 +73,12 @@ class Post{
             $q = "DELETE FROM posts WHERE postID=$postid";
             return $conn->query($q);
         }
+        //by user id
+        public static function deleteByUserId($user_id, mysqli $conn)
+        {
+            //check if admin or if users post
+            $q = "DELETE FROM posts WHERE postAuthor=$user_id";
+            return $conn->query($q);
+        }
 }
 ?>

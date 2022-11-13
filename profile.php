@@ -2,6 +2,7 @@
 
 require "dbBroker.php";
 require "model/like.php";
+require "model/post.php";
 
 session_start();
 
@@ -70,6 +71,16 @@ require "static/header.php";
                         <div class="col-md-4"></div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="md-form mb-0">
+                            <br>
+                            <button onclick="ajaxDeleteAllMyPosts()" style="color:blue;">DeleteAllMyPosts: <span id="ajaxresp"><?php echo Post::getPostByUserId($_SESSION['user_id'], $conn)->num_rows; ?></span></button>
+                        </div>
+                        <div class="col-md-4"></div>
+                    </div>
+                </div>
                 
 <!-- lajk i comment dugme -->    
         </div>
@@ -77,7 +88,7 @@ require "static/header.php";
     </section>
 </div>
 
-<script type="">
+<script type="text/javascript">
 var rot_deg = 0;
 
     function rotimg(){
@@ -85,6 +96,51 @@ var rot_deg = 0;
         rot_deg = (rot_deg+90)%360;
         rotated.style.transform = 'rotate('+rot_deg+'deg)';
     }
+
+function ajaxDeleteAllMyPosts()
+{
+    var xmlHttp;
+    try
+    {
+        // Firefox, Opera 8.0+, Safari
+        xmlHttp=new XMLHttpRequest();
+    }
+    catch (e)
+    {
+        // Internet Explorer
+        try
+        {
+            xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+        }
+        catch (e)
+        {
+            try
+            {
+                xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            catch (e)
+            {
+                alert("Your browser does not support AJAX!");
+                return false;
+            }
+        
+        }
+    }
+
+    var url="api/deleteallmyposts.php";
+    console.log(url);
+    xmlHttp.open("GET",url,true);
+    xmlHttp.send(null);
+
+    xmlHttp.onreadystatechange=function()
+    {
+        if(xmlHttp.readyState==4)
+        {
+            console.log(xmlHttp.responseText);
+            document.getElementById('ajaxresp').innerHTML = xmlHttp.responseText;
+        }
+    }
+}
 </script>
 
 <?php require "static/footer.php"; ?>
