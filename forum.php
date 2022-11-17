@@ -54,6 +54,12 @@ foreach($rows as $row):?>
 </div>
 
 <script type="">
+//PREBACI DA AJAX PRIKUPLJA POSTOVE A NE PHP
+
+
+
+
+
 //calculate days ago for each post
     dates = document.getElementsByClassName("dateposted");
     howmanydayspasseds = document.getElementsByClassName("howmanydayspassed");
